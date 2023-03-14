@@ -7,7 +7,11 @@
   <select id="selectDemo" resultMap="result">
     select * from Demo
   </select>
-  <resultMap id="result"
+  <insert id="insertDemo" parameterType="com.a2m.entities.Demo">
+  	INSERT INTO DEMO (NAME) VALUES (#{name});
+  
+  </insert>
+  <resultMap id="result" 
 		type="com.a2m.entities.Demo">
 		<result property="id" column="ID" />
 		<result property="name" column="NAME" />

@@ -11,4 +11,6 @@ public interface DemoDAO {
 
 	List<Demo> selectDemo();
 	
+	void insertDemo(Demo demo);
+	
 }
