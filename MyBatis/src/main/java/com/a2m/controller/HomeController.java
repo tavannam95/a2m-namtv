@@ -2,12 +2,18 @@ package com.a2m.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.a2m.entities.User;
 
 @Controller
 public class HomeController {
+	
+	
 	@GetMapping("/login")
-	public String login(@RequestParam(name = "success", defaultValue = "unknow") String success) {
+	public String login(@RequestParam(name = "success", defaultValue = "unknow") String success
+			) {
 		return "login";
 	}
 	@GetMapping("/home")

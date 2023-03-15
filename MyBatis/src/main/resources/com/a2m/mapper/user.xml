@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.a2m.dao.UserDAO">
+  <select id="selectUser" resultMap="result">
+    select * from User
+  </select>
+  <insert id="insertDemo" parameterType="com.a2m.entities.User">
+  	INSERT INTO DEMO (NAME,PASSWORD) VALUES (#{username},#{password});
+  
+  </insert>
+  <resultMap id="result" 
+		type="com.a2m.entities.User">
+		<result property="id" column="ID" />
+		<result property="username" column="USERNAME" />
+		<result property="password" column="PASSWORD" />
+		<result property="fullname" column="FULLNAME" />
+	</resultMap>
+</mapper>
