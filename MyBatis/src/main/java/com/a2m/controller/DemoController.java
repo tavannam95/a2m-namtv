@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.a2m.dao.DemoDAO;
+import com.a2m.dao.UserDAO;
 import com.a2m.entities.Demo;
+import com.a2m.entities.User;
 
 @CrossOrigin("*")
 @RestController
@@ -21,6 +23,9 @@ public class DemoController {
 	
 	@Autowired
 	DemoDAO dao;
+	
+	@Autowired
+	UserDAO userDAO;
 	
 	@GetMapping("")
 	public ResponseEntity<?> getDemo(){
@@ -36,5 +41,11 @@ public class DemoController {
 		
 		dao.insertDemo(demo);
 		return ResponseEntity.ok("Success");
+	}
+	
+	@GetMapping("/login")
+	public ResponseEntity<?> getUser(){
+		List<User> user = userDAO.selectUser();
+		return ResponseEntity.ok(user);
 	}
 }
